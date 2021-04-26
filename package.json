@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend em Node.JS integrado ao MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "Ricardo Leme",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
