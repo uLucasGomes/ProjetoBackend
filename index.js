@@ -12,6 +12,18 @@ app.disable('x-powered-by')
 
 //Porta default do Backend
 const PORT = 4000
+
+//Middleware do Express
+app.use(function(req, res, next){
+    //Em produção, remova o * e atualize com o domínio/ip do seu app
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    //Cabeçalhos que serão permitidos
+    res.setHeader('Access-Control-Allow-Headers','*')
+    //Ex: res.setHeader('Access-Control-Allow-Headers','Content-Type, Accept, access-token')
+    //Métodos que serão permitidos
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH')
+    next()
+})
 //Definimos que o backend fará o parse do JSON
 app.use(express.json())
 
