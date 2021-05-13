@@ -4,7 +4,7 @@ const InicializaMongoServer = require('./config/db')
 InicializaMongoServer() //Inicializamos o MongoDB
 //Definindo as rotas do nosso backend
 const rotasCategoria = require('./routes/Categoria')
-
+const rotasUpload = require('./routes/Upload')
 //Inicializamos o nosso app a partir da biblioteca express
 const app = express()
 //Removendo o x-powered-by por segurança
@@ -36,7 +36,8 @@ app.get('/', (req, res) => {
 })
 //Rotas das Categorias
 app.use("/categorias", rotasCategoria)
-
+/* Rota do upload */
+app.use('/upload', rotaUpload)
 
 
 //Rota para tratar erros 404 (deve ser a última sempre!)
