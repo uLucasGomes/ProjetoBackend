@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 //Rotas das Categorias
 app.use("/categorias", rotasCategoria)
 /* Rota do upload */
-app.use('/upload', rotaUpload)
+app.use('/upload', rotasUpload)
 
 
 //Rota para tratar erros 404 (deve ser a última sempre!)
