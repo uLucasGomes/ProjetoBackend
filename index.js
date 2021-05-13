@@ -11,7 +11,7 @@ const app = express()
 app.disable('x-powered-by')
 
 //Porta default do Backend
-const PORT = 4000
+const PORT = process.env.PORT || 4000
 
 //Middleware do Express
 app.use(function(req, res, next){
