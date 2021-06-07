@@ -2,15 +2,12 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 
-//Definindo a pasta padrão de upload
+
 const upload = multer({
     dest: './public/uploads'
 })
 
-/*******************************************
- * POST /uploads
- * Salvar a imagem recebida via upload
- *******************************************/
+
 router.post('/', upload.array('file'),
 async(req, res) => {
     console.log(`Arquivos recebidos: ${req.files.length}`)

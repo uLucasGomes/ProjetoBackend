@@ -1,14 +1,11 @@
-// API REST das Categorias
+
 const express = require('express')
 const router = express.Router()
 const { check, validationResult } = require('express-validator')
 
 const Categoria = require('../model/Categoria')
 
-/*****************************
- * GET /categorias/
- * Listar todas as categorias
- ****************************/
+
 
 router.get("/", async(req, res) => {
     try{
@@ -21,10 +18,7 @@ router.get("/", async(req, res) => {
     }
 })
 
-/*****************************
- * GET /categorias/:id
- * Listar a categoria pelo id
- ****************************/
+
 router.get('/:id', async(req, res)=>{
     try{
        const categoria = await Categoria.findById(req.params.id)
@@ -36,10 +30,7 @@ router.get('/:id', async(req, res)=>{
     }
 })
 
-/*****************************
- * POST /categorias/
- * Inclui uma nova categoria
- ****************************/
+
 const validaCategoria = [
     check('nome','Nome da Categoria é obrigatório').not().isEmpty(),
     check('status','Informe um status válido para categoria').isIn(['ativo','inativo'])
@@ -53,7 +44,7 @@ router.post('/', validaCategoria,
               errors: errors.array()
           })
       }
-      //Verifica se a categoria já existe
+      
       const { nome } = req.body
       let categoria = await Categoria.findOne({nome})
       if(categoria)
@@ -69,10 +60,7 @@ router.post('/', validaCategoria,
      }      
   })
 
-/*****************************
- * DELETE /categorias/:id
- * Apaga a categoria pelo id informado
- ****************************/
+
 router.delete("/:id", async(req, res) => {
     await Categoria.findByIdAndRemove(req.params.id)
     .then(categoria => {res.send(
@@ -86,10 +74,7 @@ router.delete("/:id", async(req, res) => {
     })
 })
 
-/*******************************************
- * PUT /categorias
- * Altera os dados da categoria informada
- *******************************************/
+
 router.put('/', validaCategoria,
 async(req, res) => {
     const errors = validationResult(req)

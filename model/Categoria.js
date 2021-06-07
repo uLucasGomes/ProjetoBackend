@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
-//Criando o schema Categoria
 
 const CategoriaSchema = mongoose.Schema({
     nome: { type: String, unique:true },
+    nick: { type: String, unique:true },
+    rank: { type: String, unique:true },
+    personagem: { type: String, unique:true },
+    fone: { type: String, unique:true },
     status: { type:String, enum: ['ativo','inativo'], default:'ativo'},
     foto: {
         originalName: {type:String},
